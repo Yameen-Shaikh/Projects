@@ -14,7 +14,7 @@ class Product(BaseModel):
     price = models.IntegerField()
     slug = models.SlugField(unique=True, null=True, blank=True)
     description = models.TextField()
-    image = models.ImageField(upload_to = 'product', default='')
+    # image = models.ImageField(upload_to = 'product', default='')
 
 
     

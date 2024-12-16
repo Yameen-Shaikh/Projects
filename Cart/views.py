@@ -37,10 +37,7 @@ class UpdateDeleteProduct(generics.RetrieveUpdateDestroyAPIView):
 
 class AddCartView(APIView):
     def post(self, request, product_id):
-        logger.info(f"Product ID: {product_id}")
-        # Retrieve the existing cart or initialize an empty one
         cart = request.session.get('cart', {})
-        # Add or update the product in the cart
         cart[str(product_id)] = cart.get(str(product_id), 0) + 1
         
         # Save the updated cart in the session
@@ -53,7 +50,7 @@ class CartDetailView(APIView):
     def get(self, request):
         cart = request.session.get('cart', {})  # Retrieve cart from session
         if not cart:
-            return Response({"NO"}, status=200)
+            return Response({"Add products to view🤌"}, status=200)
 
         cart_details = []
         total = 0
